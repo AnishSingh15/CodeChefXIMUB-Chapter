@@ -14,8 +14,11 @@
   border: none;
   text-decoration: none;
   text-transform: capitalize;
-  -webkit-transition: .2s linear;
-  transition: .2s linear;
+  transition: .2s ease;
+  -moz-transition: .2s ease;
+  -webkit-transition: .2s ease;
+  -ms-transition: .2s ease;
+  -o-transition: .2s ease;
   overflow-x: hidden;
 }
 
@@ -344,7 +347,8 @@ header nav .navbar a {
 }
 
 .card:hover {
-  scale: 1.1;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
 }
 
 .underline::after {
@@ -359,7 +363,7 @@ header nav .navbar a {
 }
 
 .contact-section {
-  min-height: 80vh;
+  min-height: 90vh;
   background-color: #0f0f0f;
 }
 
