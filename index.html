@@ -12,35 +12,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body data-barba="wrapper">
   <header>
     <div class="main-nav">
      <nav>
       <div class="logo">
-         <img src="./assests/logo.png" alt="">
+         <a href="./index.html" id="logo"><img src="./assests/logo.png" alt=""></a>
+         <div class="menu">
+          <a href="#" class="menu-btn"><i class="fa-solid fa-bars"></i></a>
+         </div>
       </div>
        <div class="navbar">
-         <a href="./index.html">home</a>
-         <a href="#">team</a>
+         <a href="./index.html" id="ho">home</a>
+         <a href="./htm/index.html">team</a>
          <a href="#">events</a>
          <a href="https://www.youtube.com/channel/UCZR20rVbgJWPbCaI5YacpmA" target="_blank">webinars</a>
          <a href="#contact">contact us</a>
        </div>
+
      </nav>   
     </div>
   </header>
   
+  <nav class="nav-bar">
+    <ul class="nav-links">
+      <h3><a href="./index.html">home</a></h3>
+      <h3><a href="#">teams</a></h3>
+      <h3><a href="#">events</a></h3>
+      <h3><a href="#">webinars</a></h3>
+      <h3><a href="#contact" id="toggle-cont">contact us</a></h3>
+    </ul>
+    </div>
+  </nav>
+  <main data-barba="container" data-barba-namespace="home">
   <section class="hero-container">
       <div class="content">
-          <h1>at codeChef-XIM we believe <br>in <span> developing</span></h1>
+          <h1 class="c-h1">at codeChef-XIM we believe <br>in <span class="tw"></span></h1>
           <p>codeChef-XIM beilieves in Lorem ipsum dolor sit.</p>
-          <div class="btn">Learn more</div>
+         <a href="#carasoul"><div class="btn">Learn more</div></a> 
       </div>
   </section>
 
   <section class="hero-container2">
    <div class="heading">
-    <h1 class="under">Event Something</h1>
+    <h1 class="under"  id="carasoul">Event Something</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam 
       vitae quaerat <br> incidunt officiis ducimus minima adipisci sit expedita voluptatum 
       rerum!</p>
@@ -108,6 +123,16 @@
   
   <section id="contact" class="contact-section">
     <div class="cont">
+      <div class="form-head">
+        <p>we would love to hear from you</p>
+        <h1 class="h1-form">contact us</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis atque facilis culpa accusamus id voluptatem neque placeat tenetur cumque, 
+          repellat reiciendis quos tempore consequuntur doloribus non excepturi, molestiae incidunt esse?</p>
+          <br>
+          <br>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis atque facilis culpa accusamus id voluptatem neque placeat tenetur cumque, 
+            repellat reiciendis quos tempore </p>
+      </div>
     <div class="form-wrapper">
     <form action="https://formspree.io/f/mvolakgk" method="POST">
       <div class="name-form">
@@ -132,17 +157,9 @@
     </form>
   </div>
 
-  <div class="form-head">
-    <p>we would love to hear from you</p>
-    <h1 class="h1-form">contact us</h1>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis atque facilis culpa accusamus id voluptatem neque placeat tenetur cumque, 
-      repellat reiciendis quos tempore consequuntur doloribus non excepturi, molestiae incidunt esse?</p>
-      <br>
-      <br>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis atque facilis culpa accusamus id voluptatem neque placeat tenetur cumque, 
-        repellat reiciendis quos tempore </p>
-  </div>
+
 </div>
+</main>
   </section>
   
   <footer>
@@ -179,7 +196,10 @@
       <h1>CodeChef-XIM &copy; 2022</h1>
      </div>
    </footer>
-  
+   <div class="swipe swipe1"></div>
+    <div class="swipe swipe2"></div>
+    <div class="swipe swipe3"></div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://unpkg.com/@barba/core"></script>
@@ -204,3 +224,4 @@
       crossorigin="anonymous"
     ></script>
   <script src="./app.js"></script>
+  

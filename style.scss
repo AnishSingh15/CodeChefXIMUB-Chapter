@@ -21,6 +21,7 @@
     overflow-x: hidden;
 }
 
+
 @mixin flex($justify-content, $align-item, $direction) {
     display: flex;
     justify-content: $justify-content;
@@ -34,7 +35,9 @@ html {
     font-family: 'Montserrat',sans-serif;
     scroll-behavior: smooth;
 }
-
+body {
+    background: black;
+}
 a {
     text-decoration: none;
 }
@@ -50,14 +53,13 @@ header {
         @include flex(none, center, row);
         flex-wrap: wrap;
         padding-top: 2rem;
-        flex-wrap: wrap;
         
 
         .logo {
             flex: 1 1 40rem;
         }
         .logo img {
-            height: 9rem;
+            max-height: 9rem;
             cursor: pointer;
             transition: all 0.2s ease;
         }
@@ -65,7 +67,7 @@ header {
         .navbar {
             flex: 1 1 40rem;
             @include flex(space-around, center, row);
-            font-size: 2.2rem;
+            font-size: 1.6vw;
             cursor: pointer;
         }
         .navbar a {
@@ -80,10 +82,20 @@ header {
     border-bottom: 0.2rem var(--font-color) solid;
     padding-bottom: 0.2rem;
 }
+
+.menu-btn {
+    color: white;
+    padding: 0rem 1rem;
+    font-size: 2.6rem;
+    display: none;
+}
+
+//////hero container///////
  .hero-container {
      min-height: 90vh;
      background: linear-gradient(rgba(0, 0, 0, 0.8), transparent),url("./assests/bg3.jpg");
      background-position: center;
+     max-width: 100%;
      background-size: cover;
      background-repeat: no-repeat;
      position: relative;
@@ -94,12 +106,16 @@ header {
          position: absolute;
          top: 30%;
          left: 5%;
+         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+         transform: translateY(-7rem);
 
-         h1 {
+         .c-h1 {
              font-size: var(--big-font);
+
              span {
                  color: rgb(228, 172, 69);
              }
+             
          }
          p {
              padding-top: 3rem;
@@ -125,12 +141,46 @@ header {
          
      }
  }
+body.hide {
+    overflow: hidden;
+}
+ .nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 1;
+    opacity: 1;
+    clip-path: circle(25px at 100% -10%);
+  }
 
+.nav-links {
+  font-size: 2rem;
+  flex-basis: 30rem;
+  text-align: center;
+  margin-top: 13rem;
+
+  a {
+      text-decoration: none;
+      color: black;
+  }
+}
+.nav-links h3 {
+  padding: 3rem 0rem;
+  font-weight: normal;
+  cursor: pointer;
+}
+.logo {
+    z-index: 2;
+}
 
  //////HERO CONTAINER - 2 //////////
 
 .hero-container2 {
     background-color: #0f0f0f;
+  
 
 
     .heading {
@@ -164,6 +214,7 @@ header {
       flex-wrap: wrap;
       position: relative;
       overflow: hidden;
+
    
       
       .img-holder {
@@ -171,10 +222,11 @@ header {
         flex: 1 1 25rem;
         min-height: 30vh;
         margin: 2rem 1.5rem;
+        overflow: hidden;
 
 
        img {
-          width: 100%;
+          max-width: 100%;
           margin: 2rem;
           -webkit-box-shadow: 0 10px 10px -10px #5c5c5c;
           -moz-box-shadow: 0 10px 10px -10px #5c5c5c;
@@ -313,7 +365,6 @@ header {
   }
 }
 .card:hover {
-   
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
 }
@@ -338,15 +389,14 @@ header {
   
 
   .cont {
-      width: 90%;
+      width: 80%;
       margin: auto;
       @include flex(center, center, row);
+    
   }
 
   .form-head {
       flex: 1 1 40rem;
-      
-      
 
       :nth-child(1) {
           font-size: 2.5rem;
@@ -378,12 +428,13 @@ header {
    }
       .form-wrapper {
           flex: 1 1 40rem;
-          margin-top: 5rem;
+          margin-top: 3rem;
          
       
           
       form {
           width: 90%;
+          margin: auto;
       }
           .name-form,.email-form,.msg-form, {
               padding: 1rem;
@@ -413,13 +464,14 @@ header {
             text-align: center;
             width: 97%;
             border: 0.1rem rgb(228, 172, 69) solid;
-            text-align: center;
             padding: 1.5rem 0rem;
             cursor: pointer;
             font-size: 2rem;
             background-color: #0f0f0f;
             color: rgb(228, 172, 69);
             margin-left: 1rem;
+
+
           }
 
           .link {
@@ -461,10 +513,10 @@ footer {
        
 
        .company-name {
-           width: 50%;
+           flex: 5 1 20rem;
        }
          .services, .about {
-             width: 25%;
+             flex: 1 1 20rem;
          }
        .com {
         margin-top: 5rem;
@@ -478,12 +530,9 @@ footer {
         h2 {
           color: rgb(131, 131, 131);
           font-weight: 200;
-          line-height: 2.5rem;
-          line-height: 2.8rem;
           cursor: pointer;
-        }
-        h2:hover {
-          text-decoration: underline;
+          line-height: 3rem;
+          font-weight: 400;
         }
      }
        
@@ -494,7 +543,7 @@ footer {
      position: absolute;
      left: 50%;
      transform: translateX(-50%);
-     bottom: 25%;
+     bottom: 20%;
 
      i {
         font-size: 2.2rem;
@@ -521,4 +570,334 @@ footer {
 
 
 
+//////TEAMS PAGE//////////
 
+.faculty-container {
+    min-height: 90vh;
+    position: relative;
+
+
+   .f-content {
+       width: 90%;
+       margin: auto;
+       @include flex(center, center, row);
+       color: white;
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       flex-wrap: wrap;
+       
+   }
+
+    .f-img {
+        flex: 1 1 25rem;
+        max-width: 40rem;
+        margin-top: 2rem;
+        
+
+        img {
+         height: 100%;
+         width: 100%;
+         object-fit: cover;
+         border-radius: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 400;
+            color: rgb(139, 139, 139);
+        }
+    }
+
+    .f-text {
+        flex: 1 1 25rem;
+       text-align: center;
+        
+
+        .f-under {
+            color: var(--font-color);
+            font-size: var(--big-font);
+            position: relative;
+            padding-bottom: 1rem;
+            
+        }
+
+        p {
+            color: rgb(139, 139, 139);
+            font-size: var(--small-font);  
+            line-height: 3rem;
+            font-weight: 500;
+            padding: 5rem;  
+        }
+    }
+}
+.f-under::after {
+    content: '';
+    height: 0.3rem;
+    width: 14%;
+    border-radius: 2rem;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 7%);
+}
+
+.intro-teams {
+   min-height: 70vh;
+   background-color: #0f0f0f;
+   position: relative;
+  
+
+  .intro-container {
+      width: 90%;
+      margin: auto;
+      @include flex(space-around, center, row);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      flex-wrap: wrap;
+      
+      
+
+      h1 {
+          font-size: var(--big-font);
+          color: white;
+          span {
+              color: var(--font-color);
+          }
+      }
+      .team-btn {
+          color: black;
+          border: 0.1rem rgb(228, 172, 69) solid;
+          padding: 1.5rem 5rem 1.5rem 2rem;
+          cursor: pointer;
+          font-size: 2rem;
+          background-color: #0f0f0f;
+          color: rgb(228, 172, 69);
+          margin-top: 2rem;
+          position: relative;
+          border-radius: 1.5rem;
+
+          i {
+             position: absolute;
+             top: 1.8rem;
+             right: 10%;
+          }
+
+
+      }
+      .team-btn:hover {
+        background-color: rgb(228, 172, 69);
+        color: black;
+    }
+
+     p {
+         font-size: var(--small-font);
+         color: rgb(139, 139, 139);
+         line-height: 3rem;
+     }
+     .i-1 {
+        flex: 1 1 25rem;
+     }
+     .i-p {
+         flex: 1 1 25rem;
+     }
+  }
+}
+
+.teams {
+  min-height: 100vh;
+  background-color: #0f0f0f;
+
+  .t-h1 {
+      font-size: var(--big-font);
+      color: var(--font-color);
+      text-align: center;
+      position: relative;
+      padding: 1rem 0rem;
+  }
+
+  .grid-container {
+      width: 90%;
+      margin: auto;
+    //   display: grid;
+    //   grid-template-columns: repeat(4, 1fr);
+    //   grid-column-gap: 2rem;
+    //   grid-row-gap: 1rem;
+    //   padding-top: 5rem;
+    @include flex(space-around, center, row);
+    flex-wrap: wrap;
+    margin-top: 5rem;
+  }
+  .grid-items {
+      max-width: 30rem;
+      border-radius: 2rem;
+      margin: 2rem 1rem;
+
+
+      img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+          
+      }
+  }
+
+}
+
+.t-h1::after {
+    content: '';
+    height: 0.3rem;
+    width: 14%;
+    border-radius: 2rem;
+    background-color: rgb(251, 251, 251);
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 7%);
+}
+
+
+
+
+//////////swipe//////
+
+.swipe {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+  }
+  
+  .swipe1 {
+    background:rgb(167, 110, 231);
+    z-index: 5;
+  }
+  .swipe2 {
+    background: rgb(86, 124, 228);
+    z-index: 4;
+  }
+  .swipe3 {
+    background: rgb(255, 139, 93);
+    z-index: 3;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////media queries//////
+
+
+@media screen and (max-width: 890px) {
+   html {
+       font-size: 55% !important;
+   }
+    .content {
+        h1 {
+            font-size: 4rem !important;
+        }
+        .btn {
+           padding: 0.5 0.5rem !important;
+        }
+    }
+
+    .logo {
+        display: flex;
+    }
+    .logo img {
+        max-height: 7rem !important;
+    }
+    .menu {
+      
+        position: absolute;
+        top: 5%;
+        right: 5%;
+    }
+    .menu-btn {
+       display: inline-block;
+    }
+    .navbar a {
+        display: none;
+    }
+
+    .cont {
+        display: block !important;
+        text-align: center;
+
+        .form-head {
+            margin-top: 2rem;
+            
+            :nth-child(1) {
+                font-size: 2rem;
+                
+            }
+      
+            h1 {
+                font-size: 5rem;
+
+            }
+      
+            :nth-child(3) {
+                font-size: 1.7rem;
+                width: 100%;
+
+            }
+            :nth-child(6) {
+              font-size: 1.7rem;
+              width: 100%;
+          }
+        }
+
+        .form-btn {
+            width: 92% !important;
+            margin: 0 !important;
+        }
+    }
+   .form-wrapper {
+       
+   }
+  .foot-container {
+  
+     h1 {
+        padding: 0 !important;
+     }
+     .h2 {
+         padding: 0 !important;
+      }
+  }
+ 
+
+  .footer-media {
+   display: none;
+  }
+  .i-p {
+    margin-top: 2rem;
+}
+}
+
+@media screen and (max-width: 375px) {
+    .form-head {
+    :nth-child(1) {
+        display: none;
+    }
+    }
+
+}
